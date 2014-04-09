@@ -1,9 +1,32 @@
 <html>
     <head>
-        <title>Tornado Boilerplate</title>
+        <title>Grabber Status</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
 
     <body>
-        <h1>It worked!</h1>
+        <div class="container">
+            <h1 class='page-header'>Status</h1>
+            {% for file in files %}
+                <div class='col-md-6'>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                {{escape(file)}}
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class='col-md-4' style='margin-top:-30px'>
+                                <img class='img-responsive' src="http://test-vh.vck.utwente.nl:8668/channels/images/status_audio_{{escape(file)}}.png">
+                            </div>
+                            <div class='col-md-8'>
+                            <img class='img-responsive' src="http://test-vh.vck.utwente.nl:8668/channels/images/{{escape(file)}}.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% end %}
+        </div>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     </body>
 </html>
